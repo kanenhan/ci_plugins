@@ -1,0 +1,20 @@
+apply plugin: 'jetty'
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+
+group = 'ci_plugins'
+
+repositories {
+  //mavenCentral()
+	mavenLocal()
+}
+
+dependencies {
+   providedCompile 'javax.servlet:servlet-api:2.4'
+   compile 'org.springframework:spring-webmvc:3.2.3.RELEASE',
+   			'junit:junit:4.6'
+   runtime 'javax.servlet:jstl:1.1.0'
+}
+
+/* Change context path (base url). otherwise defaults to name of project */
+jettyRunWar.contextPath = '' 
